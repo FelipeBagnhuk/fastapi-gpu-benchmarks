@@ -1,0 +1,14 @@
+gpu_benchmark_api/
+│
+├── app/
+│   ├── database/         
+│   │   ├── connection.py # Abre a conexão com o banco
+│   │   └── models.py     # Cria a tabela GPU (Nome, FPS_1080p, FPS_1440p, FPS_4k)
+│   │
+│   ├── core/             
+│   │   └── gpu_entity.py # A classe OO da GPU (onde você cria regras como a de classificação)
+│   │
+│   ├── routers/          
+│   │   └── gpu_router.py # Onde ficam as rotas do FastAPI (GET /gpus)
+│   │
+│   └── main.py           # Inicializa a API
