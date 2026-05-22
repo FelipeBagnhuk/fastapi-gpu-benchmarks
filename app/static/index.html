@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPU Benchmarks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <div style="margin-bottom:12px;">
+      <a href="https://github.com/FelipeBagnhuk/fastapi-gpu-benchmarks" target="_blank" rel="noopener" class="github-link" aria-label="Repositório do projeto no GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 .5C5.73.5.75 5.48.75 11.76c0 4.93 3.19 9.1 7.62 10.57.56.1.76-.24.76-.53 0-.26-.01-1.12-.02-2.02-3.1.67-3.76-1.5-3.76-1.5-.51-1.3-1.24-1.65-1.24-1.65-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.6 1.21 3.24.93.1-.73.39-1.21.71-1.49-2.47-.28-5.07-1.24-5.07-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.41.11-2.95 0 0 .93-.3 3.05 1.14.88-.24 1.82-.36 2.76-.36.94 0 1.88.12 2.76.36 2.12-1.44 3.05-1.14 3.05-1.14.61 1.54.23 2.67.11 2.95.71.78 1.15 1.77 1.15 2.99 0 4.29-2.61 5.24-5.09 5.52.4.35.75 1.04.75 2.09 0 1.51-.01 2.73-.01 3.1 0 .29.2.63.77.52 4.43-1.48 7.61-5.65 7.61-10.57C23.25 5.48 18.27.5 12 .5z" fill="currentColor"/>
+        </svg>
+        <span class="github-text">FelipeBagnhuk/fastapi-gpu-benchmarks</span>
+      </a>
+    </div>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">GPU Benchmarks API</p>
+        <h1>Consulta e cálculo de custo por frame</h1>
+        <p class="tagline">Use a API com interface rápida e limpa para buscar GPUs, filtrar por marca e calcular custo por FPS.</p>
+      </div>
+      <div class="status-card">
+        <span>Backend</span>
+        <strong>Ativo</strong>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Buscar GPU por nome</h2>
+            <p>Pesquisa inteligente com correspondência técnica e resultado único.</p>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="field-group">
+            <label for="search-name">Nome ou parte do nome</label>
+            <input id="search-name" type="text" placeholder="Ex.: rtx 5090, 9070, 4070 ti" />
+          </div>
+          <button id="search-button" class="action">Buscar GPU</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Filtrar por marca</h2>
+            <p>Escolha uma marca e veja todas as GPUs disponíveis.</p>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="field-group">
+            <label for="brand-select">Selecionar marca</label>
+            <select id="brand-select">
+              <option value="Nvidia">Nvidia</option>
+              <option value="AMD">AMD</option>
+              <option value="Intel">Intel</option>
+            </select>
+          </div>
+          <button id="brand-button" class="action">Pesquisar marca</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Calcular custo por frame</h2>
+            <p>Informe a GPU e o preço para obter o valor em FHD, 1440p e 4K.</p>
+          </div>
+        </div>
+        <div class="panel-body grid-two">
+          <div class="field-group">
+            <label for="cost-name">Nome da GPU</label>
+            <input id="cost-name" type="text" placeholder="Ex.: 5090, rtx 4080" />
+          </div>
+          <div class="field-group">
+            <label for="price-input">Preço atual (BRL)</label>
+            <input id="price-input" type="number" step="0.01" placeholder="Ex.: 4999.99" />
+          </div>
+        </div>
+        <button id="cost-button" class="action">Calcular</button>
+      </section>
+
+      <section class="panel results-panel">
+        <div class="panel-header">
+          <div>
+            <h2>Consultas</h2>
+            <p>Os resultados aparecem aqui de forma clara e organizada.</p>
+          </div>
+        </div>
+        <div id="result-area" class="result-area">
+          <p class="hint">Faça uma consulta para ver os dados. Este projeto é open source no GitHub: <a href="https://github.com/FelipeBagnhuk/fastapi-gpu-benchmarks" target="_blank">github.com/FelipeBagnhuk/fastapi-gpu-benchmarks</a></p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/static/script.js"></script>
+</body>
+</html>

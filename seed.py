@@ -1,5 +1,5 @@
 from app.database.models import GpuBenchmark
-from app.database.connection import db
+from app.database.connection import SessionLocal
 
 gpus_for_registration = [
     GpuBenchmark(name="GeForce RTX 5090", brand="Nvidia", fps_1080p_medium=198, fps_1080p_ultra=158, fps_1440p=143, fps_4k=106),
@@ -38,8 +38,15 @@ gpus_for_registration = [
     GpuBenchmark(name="Radeon RX 6600", brand="AMD", fps_1080p_medium=64, fps_1080p_ultra=37, fps_1440p=24, fps_4k=12),
 ]
 
-# 2. Em vez de dar .add() um por um, passamos a lista inteira de uma vez só
-db.add_all(gpus_for_registration)
+def seed_db():
+    db = SessionLocal()
+    try:
+        if db.query(GpuBenchmark).count() == 0:
+            db.add_all(gpus_for_registration)
+            db.commit()
+    finally:
+        db.close()
 
-# 3. Fazemos um único commit para gravar todas as placas no banco de dados
-db.commit()
+
+if __name__ == "__main__":
+    seed_db()

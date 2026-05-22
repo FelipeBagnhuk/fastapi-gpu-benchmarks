@@ -1,21 +1,21 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, declarative_base
 
-# 1. Dizemos onde o banco vai existir (criará um arquivo na raiz do projeto)
-ENGINE = create_engine("sqlite:///benchmarks.db")
+SQLALCHEMY_DATABASE_URL = "sqlite:///./benchmarks.db"
 
-# 2. Criamos a fábrica de sessões
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=ENGINE)
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+)
 
-# 3. Criamos o 'db' abrindo uma sessão real com o banco
-db = SessionLocal()
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
 
-# --- AQUI COMEÇA O SEU CÓDIGO ---
-# Agora o 'db' existe! O VS Code vai reconhecer e o vermelho vai sumir.
-gpus_for_registration = [
-    # Suas GPUs aqui...
-]
-
-db.add_all(gpus_for_registration)
-db.commit()
-db.close() # Boa prática: fechar a sessão quando terminar
+def get_db():
+    """
+    Abre uma sessão com o banco e fecha após a requisição.
+    """
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
