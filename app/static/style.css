@@ -37,6 +37,19 @@ body {
   gap: 20px;
 }
 
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.source-credit {
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: right;
+}
+
 .hero,
 .panel {
   background: rgba(15, 22, 34, 0.9);
