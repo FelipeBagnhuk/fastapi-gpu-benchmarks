@@ -1,4 +1,4 @@
-# Cria a tabela GPU (Nome, FPS_1080p, FPS_1440p, FPS_4k)
+# Cria a tabela GPU (Nome, FPS_1080p_medium, FPS_1080P_ultra, FPS_1440p, FPS_4k)
 
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import declarative_base
@@ -16,7 +16,8 @@ class GpuBenchmark(Base):
     brand = Column(String(50), nullable=False) # Para separar Nvidia de AMD/Intel
 
     # 3. Os Dados de Desempenho do Tom's Hardware (Números Inteiros)
-    fps_1080p = Column(Integer, nullable=False)
+    fps_1080p_medium = Column(Integer, nullable=False)
+    fps_1080p_ultra = Column(Integer, nullable=False)
     fps_1440p = Column(Integer, nullable=False)
     fps_4k = Column(Integer, nullable=False)
 
