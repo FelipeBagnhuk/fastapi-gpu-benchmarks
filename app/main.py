@@ -6,8 +6,10 @@ from fastapi.staticfiles import StaticFiles
 from app.routers.gpu_router import router as gpu_router
 from app.database.connection import engine, Base
 from app.database import models
+from init_db import init_database
 
-Base.metadata.create_all(bind=engine)
+# Inicializar banco e popular se vazio
+init_database()
 
 app = FastAPI(title="GPU API")
 
