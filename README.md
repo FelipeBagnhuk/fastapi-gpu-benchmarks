@@ -1,4 +1,4 @@
-# GPU Benchmark API 🎮📊
+# GPU Benchmark API 
 
 Uma API REST desenvolvida em Python com FastAPI para fornecer a média de quadros por segundo (FPS) de placas de vídeo (GPUs) em diferentes resoluções (1080p, 1440p e 4K), utilizando como base de conhecimento os dados consolidados do Tom's Hardware.
 
