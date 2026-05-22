@@ -2,6 +2,9 @@
 
 Uma API REST desenvolvida em Python com FastAPI para fornecer a média de quadros por segundo (FPS) de placas de vídeo (GPUs) em diferentes resoluções (1080p, 1440p e 4K), utilizando como base de conhecimento os dados consolidados do Tom's Hardware.
 
+## O deploy da API está feito junto ao frontend e pode ser acesso pleo link:
+https://fastapi-gpu-benchmarks.onrender.com
+
 ## Objetivo do Projeto
 O objetivo é centralizar dados de performance que hoje estão dispersos em artigos e tabelas extensas, permitindo que desenvolvedores ou entusiastas consultem rapidamente o potencial de entrega de uma GPU de forma estruturada.
 
